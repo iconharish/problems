@@ -22,9 +22,9 @@ public class IsBinarySearchTree {
 		
 		if ((root.child[0].value >= root.value && root.child[1].value <= root.value) || (root.child[0].value <= root.value && root.child[1].value >= root.value)) {
 			return isBinarySearchTree(root.child[0]) && isBinarySearchTree(root.child[1]);
+		} else {
+			return false;
 		}
-		
-		return false;
 	}
 }
 
