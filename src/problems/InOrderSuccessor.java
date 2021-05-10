@@ -50,35 +50,52 @@ public class InOrderSuccessor {
 		boolean[] isFound = new boolean[1];
 		Node successor = executor.inOrderSuccessor(node10, 1, isFound);
 		System.out.println(successor != null ? successor.value : "null");
+		isFound[0] = false;
+		successor = executor.inOrderSuccessor(node10, 2, isFound);
+		System.out.println(successor != null ? successor.value : "null");
+		isFound[0] = false;
+		successor = executor.inOrderSuccessor(node10, 6, isFound);
+		System.out.println(successor != null ? successor.value : "null");
+		isFound[0] = false;
+		successor = executor.inOrderSuccessor(node10, 9, isFound);
+		System.out.println(successor != null ? successor.value : "null");
+		isFound[0] = false;
+		successor = executor.inOrderSuccessor(node10, 10, isFound);
+		System.out.println(successor != null ? successor.value : "null");
+		isFound[0] = false;
+		successor = executor.inOrderSuccessor(node10, 13, isFound);
+		System.out.println(successor != null ? successor.value : "null");
+		isFound[0] = false;
+		successor = executor.inOrderSuccessor(node10, 15, isFound);
+		System.out.println(successor != null ? successor.value : "null");
+		isFound[0] = false;
+		successor = executor.inOrderSuccessor(node10, 20, isFound);
+		System.out.println(successor != null ? successor.value : "null");
 		
 	}
 	
 	Node inOrderSuccessor (Node root, int key, boolean[] isFound) {
 		
-		if (root != null) {
-			
-			Node successor = inOrderSuccessor(root.left, key, isFound);
-			
-			if (successor != null) {
-				return successor;
-			}
-			
-			if (isFound[0]) {
-				return root;
-			}
-			
-			if (root.value == key) {
-				isFound[0] = true;
-			}
-			
-			//System.out.println(root.value);
-			successor = inOrderSuccessor(root.right, key, isFound);
-			if (successor != null) {
-				return successor;
-			}
+		if (root == null) {
+			return null;
 		}
 		
-		return null;
+		Node successor = inOrderSuccessor(root.left, key, isFound);
+		
+		if (successor != null) {
+			return successor;
+		}
+		
+		if (isFound[0]) {
+			return root;
+		}
+		
+		if (root.value == key) {
+			isFound[0] = true;
+		}
+		
+		//System.out.println(root.value);
+		return inOrderSuccessor(root.right, key, isFound);
 		
 	}
 	

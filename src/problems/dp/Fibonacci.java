@@ -1,4 +1,4 @@
-package problems.dynamicp;
+package problems.dp;
 
 public class Fibonacci {
 	

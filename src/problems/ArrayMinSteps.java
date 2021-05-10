@@ -1,5 +1,7 @@
 package problems;
 
+import java.util.Arrays;
+
 public class ArrayMinSteps {
 	public static void main(String[] args) {
 		ArrayMinSteps obj = new ArrayMinSteps();
@@ -23,7 +25,7 @@ public class ArrayMinSteps {
 		System.out.println(obj.getMinStepsToCoverArray(arrayNull));
 		
 		int[] arrayOne = {1}; // Answer = 1
-		System.out.println(obj.getMinStepsToCoverArray(arrayOne));
+		System.out.println(obj.getMinStepsToCoverArray1(arrayOne));
 		
 	}
 	
@@ -53,5 +55,31 @@ public class ArrayMinSteps {
 		}
 		
 		return jumpCount;
+	}
+	
+	private int getMinStepsToCoverArray1(int[] arr) {
+		if (arr.length == 0) {
+			return 0;
+		}
+		
+		int[] temp = new int[arr.length];
+		Arrays.fill(temp, Integer.MAX_VALUE);
+		temp[0] = 0;
+		
+		boolean reachedEnd = false;
+		for (int i = 0; i < arr.length; i++) {
+			for (int j = i+1; j <= i + arr[i] && j < arr.length; j++) {
+				temp[j] = Math.min(temp[j], temp[i] + 1);
+				if (j == arr.length - 1) {
+					reachedEnd = true;
+					break;
+				}
+			}
+			if (reachedEnd) {
+				break;
+			}
+		}
+		
+		return temp[arr.length - 1];
 	}
 }
