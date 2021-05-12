@@ -1,4 +1,4 @@
-package problems;
+package problems.tree;
 
 public class BinarySearchTree {
 	
@@ -34,10 +34,7 @@ public class BinarySearchTree {
 			return false;
 		}
 		
-		if (!isBinarySearchTree(root.leftNode) || ! isBinarySearchTree(root.rightNode)) {
-			return false;
-		}
-		return true;
+		return isBinarySearchTree(root.leftNode) && isBinarySearchTree(root.rightNode);
 	}
 	
 	private Node getSampleTree() {

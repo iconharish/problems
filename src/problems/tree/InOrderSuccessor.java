@@ -1,4 +1,4 @@
-package problems;
+package problems.tree;
 
 public class InOrderSuccessor {
 	

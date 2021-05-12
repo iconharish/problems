@@ -1,6 +1,6 @@
-package problems;
+package problems.tree;
 
-public class IsBinarySearchTree {
+public class IsNAryTreeABinarySearchTree {
 
 	// check if the given n-ary tree can be possibly considered as a binary search tree or not.
 	boolean isBinarySearchTree(TreeNode root) {
