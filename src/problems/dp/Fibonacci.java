@@ -9,7 +9,7 @@ public class Fibonacci {
 		System.out.println(new Fibonacci().fib(400));
 	}
 	
-	int fib (int n) {
+	private int fib (int n) {
 		
 		if (n <= 1) {
 			return n;
